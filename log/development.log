@@ -761,3 +761,94 @@ Processing by PostsController#edit as HTML
   [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 4]]
   Rendered posts/edit.html.erb within layouts/application (16.0ms)
 Completed 200 OK in 347ms (Views: 318.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for ::1 at 2019-02-03 11:04:52 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 541ms (Views: 531.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for ::1 at 2019-02-03 11:04:58 -0500
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 28ms (Views: 27.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2019-02-03 11:05:30 -0500
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 46ms (Views: 40.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/posts" for ::1 at 2019-02-03 11:05:47 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+YKy6SP6vXzJLR5p1sQKqNi7DMA3x8e92rWMxyj7kfPUtew3y4I8nTqHBjge8PlBKB6v6wDHoXJ8xqFlZkTHg==", "title"=>"How to buy a great car", "description"=>"Go to a great dealership", "commit"=>"Submit Post"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `title=' for nil:NilClass):
+  app/controllers/posts_controller.rb:15:in `create'
+
+
+  Rendered /Users/flatironschool/.rvm/gems/ruby-2.5.3/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/flatironschool/.rvm/gems/ruby-2.5.3/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/flatironschool/.rvm/gems/ruby-2.5.3/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/flatironschool/.rvm/gems/ruby-2.5.3/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (108.1ms)
+
+
+Started POST "/posts" for ::1 at 2019-02-03 11:06:17 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+YKy6SP6vXzJLR5p1sQKqNi7DMA3x8e92rWMxyj7kfPUtew3y4I8nTqHBjge8PlBKB6v6wDHoXJ8xqFlZkTHg==", "title"=>"How to buy a great car", "description"=>"Go to a great dealership", "commit"=>"Submit Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "How to buy a great car"], ["description", "Go to a great dealership"], ["created_at", "2019-02-03 16:06:17.350185"], ["updated_at", "2019-02-03 16:06:17.350185"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 24ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-02-03 11:06:17 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 58ms (Views: 43.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/" for ::1 at 2019-02-03 11:06:21 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 47ms (Views: 45.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for ::1 at 2019-02-03 11:06:29 -0500
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 33ms (Views: 31.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2019-02-03 11:06:39 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dK28s9xNJVIjaJFdRDza6cYsHKSgCXrgeTKml4AZXbl4GWHIp+zHVaSmOTwDHAkmYe6KKAzVe3tHq2ohCSOg4A==", "title"=>"Car Buying 101", "description"=>"Do it well", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Car Buying 101"], ["description", "Do it well"], ["created_at", "2019-02-03 16:06:39.470870"], ["updated_at", "2019-02-03 16:06:39.470870"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/6
+Completed 302 Found in 10ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/posts/6" for ::1 at 2019-02-03 11:06:39 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 21ms (Views: 18.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for ::1 at 2019-02-03 11:06:46 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.2ms)
